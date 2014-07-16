@@ -62,8 +62,10 @@ class MatrixParserTest extends PHPUnit_Framework_TestCase
 
         // Verify that we get an array back from the parser
         $this->assertTrue(is_array($matrixArray));
-        // Verify that we get back a count of 20 considering the test defines a 20x20 matrix
+        // Verify that we get back a count of 20 for rows considering the test defines a 20x20 matrix
         $this->assertEquals(count($matrixArray), 20);
+        // Verify that we get back a count of 20 for columns considering the test defines a 20x20 matrix
+        $this->assertEquals(count($matrixArray[0]), 20);
 
         return $matrixArray;
     }
