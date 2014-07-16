@@ -83,7 +83,7 @@ class MatrixParser
             for ($column = 0; $column <= $columns; $column ++) {
                 // Check if there is enough clearance for us to get three numbers
                 if ($column < $columns - 3) {
-                    // Right and Left
+                    // Left and Right
                     $greatest = max(
                         $greatest,
                         $matrix[$row][$column] * $matrix[$row][$column + 1] * $matrix[$row][$column + 2] * $matrix[$row][$column + 3]
