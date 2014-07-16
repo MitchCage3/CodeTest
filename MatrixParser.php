@@ -63,7 +63,7 @@ class MatrixParser
 
         if (empty($matrix)) {
             if (empty($this->matrixArr)) {
-                throw new \InvalidArgumentException('Provided Matrix Array was empty');
+                throw new \InvalidArgumentException('Provided Matrix Array and internal array both where empty');
             }
             $matrix = $this->matrixArr;
         }
