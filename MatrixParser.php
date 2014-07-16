@@ -62,12 +62,12 @@ class MatrixParser
          */
 
         if (empty($matrix)) {
+            if (empty($this->matrixArr)) {
+                throw new \InvalidArgumentException('Provided Matrix Array was empty');
+            }
             $matrix = $this->matrixArr;
         }
 
-        if (empty($this->matrixArr)) {
-            throw new \InvalidArgumentException('Provided Matrix Array was empty');
-        }
 
         /*
          * Count the number of rows and columns
@@ -81,9 +81,9 @@ class MatrixParser
         // Loop over both rows and columns at the same time (messy but best within time constraint)
         for ($row = 0; $row <= $rows; $row ++) {
             for ($column = 0; $column <= $columns; $column ++) {
-                // Check if there is enough clearance for us to get three numbers
+
+                // Left and Right
                 if ($column < $columns - 3) {
-                    // Left and Right
                     $greatest = max(
                         $greatest,
                         $matrix[$row][$column] * $matrix[$row][$column + 1] * $matrix[$row][$column + 2] * $matrix[$row][$column + 3]
